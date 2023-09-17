@@ -1,0 +1,34 @@
+Em programação, o que é um vetor?
+A) Um tipo de dado usado apenas para armazenar números inteiros.
+B) Uma variável que só pode conter caracteres de texto.
+C) Uma estrutura de dados que armazena uma coleção de elementos do mesmo tipo.
+D) Uma função que calcula a média de um conjunto de números.
+E) Um operador matemático.
+Resposta: C
+--
+
+Qual é a principal diferença entre um vetor e uma matriz?
+A) Um vetor é unidimensional, enquanto uma matriz é bidimensional.
+B) Um vetor pode armazenar diferentes tipos de dados, enquanto uma matriz não.
+C) Um vetor é sempre mais eficiente do que uma matriz.
+D) Um vetor pode conter apenas um elemento, enquanto uma matriz pode conter vários.
+E) Vetores e matrizes são a mesma coisa em programação.
+Resposta: A
+--
+
+Em programação, como você acessa um elemento específico em um vetor?
+A) Usando a palavra-chave "element" seguida do índice desejado.
+B) Utilizando a função "get()" com o índice como argumento.
+C) Usando o operador "()" seguido do índice do elemento.
+D) Utilizando o índice entre colchetes após o nome do vetor.
+E) Apenas é possível acessar todos os elementos de uma vez.
+Resposta: D
+--
+
+Qual é a dimensão de uma matriz 3x4?
+A) Unidimensional.
+B) Bidimensional.
+C) Tridimensional.
+D) Quadrilateral.
+E) Hexagonal.
+Resposta: B

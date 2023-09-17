@@ -1,0 +1,34 @@
+Qual é o principal propósito da estrutura condicional "if" em programação?
+A) Executar um bloco de código repetidamente.
+B) Realizar uma operação de multiplicação.
+C) Tomar decisões com base em condições.
+D) Criar uma lista de elementos.
+E) Definir uma função.
+Resposta: C
+--
+
+Em uma estrutura "if-else"  o que acontece se a condição no "if" for falsa?
+A) O programa encerra a execução.
+B) O programa pula para o próximo "if".
+C) O bloco de código dentro do "if" é executado.
+D) O bloco de código dentro do "else" é executado.
+E) Nada acontece, o programa continua normalmente.
+Resposta: D
+--
+
+Qual é a diferença entre "if" simples e "if-else" em uma estrutura condicional?
+A) Não há diferença, ambos fazem a mesma coisa.
+B) "if" simples só pode lidar com condições verdadeiras.
+C) "if-else" pode lidar com múltiplas condições.
+D) "if" simples é mais eficiente que "if-else".
+E) "if" simples não é uma estrutura condicional válida em Python.
+Resposta: C
+--
+
+O que a estrutura condicional "elif" é usada para fazer?
+A) Encerrar o programa imediatamente.
+B) Verificar a condição "if" em um loop.
+C) Ignorar completamente a estrutura condicional.
+D) Executar um bloco de código sem condição.
+E) Lidar com múltiplas condições em sequência.
+Resposta: E

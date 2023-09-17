@@ -1,0 +1,27 @@
+﻿O que é a manipulação de dados em um contexto de tecnologia da informação?
+A) Um método para ocultar dados importantes.
+B) Uma técnica para excluir permanentemente dados de um dispositivo.
+C) O processo de coleta, organização, processamento e transformação de informações.
+D) A codificação de dados em linguagem de programação.
+E) A transferência de dados de um dispositivo para outro.
+Resposta: C
+–
+
+
+O que é uma "chave primária" em um banco de dados relacional?
+A) Um código de acesso para abrir o banco de dados.
+B) Uma senha exclusiva para o administrador do banco de dados.
+C) Um valor único que identifica cada registro em uma tabela.
+D) Um campo que armazena informações confidenciais.
+E) Uma função que calcula a média dos dados em uma tabela.
+Resposta: C
+–
+
+
+Qual é a finalidade da linguagem SQL (Structured Query Language) em relação à manipulação de dados?
+A) Armazenar arquivos em um servidor web.
+B) Desenvolver aplicativos móveis.
+C) Criar gráficos e visualizações de dados.
+D) Consultar, atualizar e gerenciar bancos de dados relacionais.
+E) Criar páginas da web dinâmicas.
+Resposta: D

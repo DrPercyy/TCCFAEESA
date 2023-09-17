@@ -1,0 +1,25 @@
+Qual é a equivalência tautológica que representa a Lei da Identidade na álgebra booleana?
+A) ¬p ∧ p ≡ F
+B) p ∨ (¬p) ≡ T
+C) ¬p ∨ p ≡ T
+D) p ∧ (¬p) ≡ F
+E) (p ∨ q) ∨ r ≡ p ∨ (q ∨ r)
+Resposta: E
+--
+
+Qual é a equivalência tautológica que representa a Lei da Dupla Negação na lógica proposicional?
+A) p ≡ ¬(¬p)
+B) p ≡ ¬p
+C) ¬p ≡ ¬(¬p)
+D) p ≡ (¬p)
+E) ¬p ≡ (¬¬p)
+Resposta: A
+--
+
+Qual é a equivalência tautológica que representa a Lei da Comutatividade na álgebra booleana?
+A) p ∨ q ≡ q ∨ p
+B) p ∨ (q ∨ r) ≡ (p ∨ q) ∨ r
+C) p ∨ p ≡ p
+D) p ∧ (q ∨ r) ≡ (p ∧ q) ∨ r
+E) ¬(p ∧ q) ≡ ¬p ∧ ¬q
+Resposta: A

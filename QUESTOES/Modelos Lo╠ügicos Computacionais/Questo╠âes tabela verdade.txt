@@ -1,0 +1,25 @@
+O que representa a tabela verdade em lógica?
+A) Uma lista de proposições que não têm valor lógico definido.
+B) Um método para criar argumentos inválidos.
+C) Uma representação visual das operações lógicas entre proposições.
+D) Uma tabela de valores lógicos que mostra todas as combinações possíveis de valores para proposições.
+E) Uma lista de falácias lógicas comuns.
+Resposta: D
+--
+
+Quantas linhas uma tabela verdade deve ter para representar todas as combinações de valores lógicos para duas proposições?
+A) 1
+B) 2
+C) 3
+D) 4
+E) 5
+Resposta: D
+--
+
+O que representa o valor "Falso" (False) em uma tabela verdade?
+A) A proposição é verdadeira.
+B) A proposição é falsa.
+C) A proposição é indefinida.
+D) A proposição é uma tautologia.
+E) A proposição é contraditória.
+Resposta: B

@@ -1,0 +1,27 @@
+﻿O que é um Sistema de Informação de Negócio (SIN) em uma empresa?
+A) Um software de entretenimento para funcionários.
+B) Um sistema de segurança de rede.
+C) Um sistema que auxilia na coleta, armazenamento, processamento e distribuição de informações relacionadas aos processos de negócios.
+D) Um sistema de transporte de mercadorias.
+E) Um sistema de gerenciamento de recursos humanos.
+Resposta: C
+– 
+
+
+Qual é o objetivo principal de um Sistema de Informação de Negócio (SIN)?
+A) Substituir completamente os funcionários da empresa.
+B) Aumentar o entretenimento no local de trabalho.
+C) Melhorar a segurança cibernética da organização.
+D) Apoiar e otimizar as operações e processos de negócios.
+E) Automatizar todas as tarefas administrativas.
+Resposta: D
+–
+
+
+Como um Sistema de Informação de Negócio (SIN) pode beneficiar uma organização?
+A) Aumentando os custos operacionais.
+B) Tornando os processos mais complexos.
+C) Reduzindo a eficiência dos funcionários.
+D) Melhorando a tomada de decisões, proporcionando acesso a informações em tempo real e ajudando na automação de tarefas.
+E) Aumentando o tempo de inatividade dos sistemas de TI.
+Resposta: D

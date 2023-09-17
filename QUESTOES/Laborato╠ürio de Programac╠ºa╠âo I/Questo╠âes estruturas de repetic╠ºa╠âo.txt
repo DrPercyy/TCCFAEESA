@@ -1,0 +1,34 @@
+Qual é o principal propósito de um loop "for" em programação?
+A) Realizar uma operação de divisão.
+B) Executar um bloco de código repetidamente enquanto uma condição for verdadeira.
+C) Tomar decisões com base em condições.
+D) Criar uma lista de elementos.
+E) Definir uma função.
+Resposta: D
+--
+
+O que é um "loop infinito" em programação?
+A) Um loop que não tem condição de parada.
+B) Um loop que executa apenas uma vez.
+C) Um loop que nunca é executado.
+D) Um loop que só pode ser usado em Python.
+E) Um loop que não faz nada.
+Resposta: A
+--
+
+Qual é o objetivo da declaração "break" em um loop?
+A) Encerrar o programa imediatamente.
+B) Pular para o próximo loop "for".
+C) Sair do loop imediatamente, interrompendo a repetição.
+D) Ignorar completamente o loop.
+E) Adicionar uma condição de repetição.
+Resposta: C
+--
+
+O que é um "loop while" em programação?
+A) Um loop que não é mais usado em linguagens modernas.
+B) Um loop que executa um número fixo de vezes.
+C) Um loop que executa indefinidamente até que uma condição seja falsa.
+D) Um loop que só pode ser usado em linguagens de baixo nível.
+E) Um loop que inverte a ordem dos elementos em uma lista.
+Resposta: E

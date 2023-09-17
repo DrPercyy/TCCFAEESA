@@ -1,0 +1,25 @@
+Qual é o resultado da operação lógica "E" (AND) quando ambas as proposições são verdadeiras?
+A) Verdadeiro
+B) Falso
+C) Indefinido
+D) Alternativo
+E) Inverso
+Resposta: A
+--
+
+Qual é o resultado da operação lógica "OU" (OR) quando pelo menos uma das proposições é verdadeira?
+A) Verdadeiro
+B) Falso
+C) Indefinido
+D) Exclusivo
+E) Inverso
+Resposta: A
+--
+
+Qual é o resultado da operação lógica "NÃO" (NOT) quando a proposição original é verdadeira?
+A) Verdadeiro
+B) Falso
+C) Indefinido
+D) Contraditório
+E) Inverso
+Resposta: B
