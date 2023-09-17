@@ -1,0 +1,20 @@
+Adriana, Breno, Carolina e Danilo são funcionários de uma empresa, sendo que dois deles são médicos e os outros dois são advogados. Cada uma das idades dos advogados é maior do que cada uma das idades dos médicos. Considere as quatro afirmações:
+I. Breno e Carolina são ambos médicos ou um deles é advogado e o outro é médico. II. Danilo é mais velho do que Breno. III. Adriana é mais nova do que Danilo. IV. Adriana é mais velha do que Carolina.
+Sabendo que duas das afirmações acima são verdadeiras e as outras duas são falsas, conclui-se, com certeza, que
+A) Breno e Carolina são um deles médico e o outro advogado. 
+B) Breno e Carolina são ambos médicos. 
+C) Breno e Carolina são ambos advogados. 
+D)  Danilo é mais velho do que Carolina.
+E) Danilo é mais novo do que Breno.
+Resposta: A
+--
+
+Entre Maria, Natália, Olinda, Patrícia e Queila, apenas uma delas nasceu em Bento Gonçalves. Além disso, são verdadeiras as seguintes proposições:
+Ou Maria nasceu em Bento Gonçalves, ou Queila não nasceu em Bento Gonçalves.  Natália nasceu em Bento Gonçalves se, e somente se, Olinda nasceu em Bento Gonçalves.
+Logo, é correto afirmar que quem nasceu em Bento Gonçalves foi 
+A) Maria
+B) Natália.
+C) Olinda.
+D) Patrícia.
+E) Queila
+Resposta: D

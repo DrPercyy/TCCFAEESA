@@ -1,0 +1,34 @@
+Qual é a principal característica da linguagem Python?
+A) Linguagem de programação compilada.
+B) Linguagem de programação orientada a objetos.
+C) Linguagem de programação fortemente tipada.
+D) Linguagem de programação de baixo nível.
+E) Linguagem de programação baseada em lógica fuzzy.
+Resposta: B
+--
+
+Qual dos seguintes operadores é usado para realizar a multiplicação em Python?
+A) +
+B) -
+C) *
+D) /
+E) %
+Resposta: C
+--
+
+Qual é a função da declaração if em Python?
+A) Loop infinito.
+B) Definir uma função.
+C) Tomar decisões com base em condições.
+D) Realizar operações aritméticas.
+E) Imprimir valores na tela.
+Resposta: C
+--
+
+O que é uma lista em Python?
+A) Um tipo de variável que só pode conter números inteiros.
+B) Um tipo de estrutura de controle que repete um bloco de código.
+C) Um tipo de dado que armazena valores em pares chave-valor.
+D) Uma sequência ordenada de elementos que pode conter diversos tipos de dados.
+E) Uma função embutida que calcula a raiz quadrada de um número.
+Resposta: D

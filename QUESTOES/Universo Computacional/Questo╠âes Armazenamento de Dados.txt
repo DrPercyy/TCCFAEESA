@@ -1,0 +1,17 @@
+﻿O que é um disco rígido (HD) em um computador?
+A) Uma unidade de processamento central.
+B) Um dispositivo de entrada de dados.
+C) Uma unidade de armazenamento de dados não volátil que utiliza discos magnéticos para armazenar informações.
+D) Um dispositivo de saída de dados.
+E) Uma memória RAM.
+Resposta: C
+–
+
+
+Qual das seguintes opções é um exemplo de armazenamento de dados em nuvem?
+A) Disco rígido externo.
+B) Pen drive USB.
+C) Servidor local.
+D) Google Drive.
+E) DVD virgem.
+Resposta: D

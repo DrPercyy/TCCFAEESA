@@ -1,0 +1,43 @@
+Qual é a definição de algoritmo?
+A) Um programa de computador.
+B) Um conjunto de instruções precisas para resolver um problema.
+C) Um resultado de pesquisa na internet.
+D) Um dispositivo de armazenamento de dados.
+E) Um método de criptografia de dados.
+Resposta: B
+--
+
+Qual é a principal diferença entre um algoritmo e um programa de computador?
+A) Algoritmos só podem ser escritos em pseudocódigo.
+B) Programas de computador não são usados na resolução de problemas.
+C) Algoritmos são sempre mais eficientes que programas.
+D) Algoritmos são abstrações de alto nível, enquanto programas são implementações concretas.
+E) Algoritmos são puramente teóricos e não podem ser executados, enquanto programas de computador são implementações práticas dos algoritmos.
+Resposta: D
+--
+
+O que é um loop em um algoritmo?
+A) Uma estrutura de controle que repete um bloco de instruções enquanto uma condição é verdadeira.
+B) Um erro de programação.
+C) Um tipo de variável.
+D) Uma função matemática.
+E) Uma sequência de instruções que são executadas apenas uma vez, independentemente de qualquer condição.
+Resposta: A
+--
+
+Imagine que você está projetando um sistema de recomendação para uma plataforma de streaming de música. Um algoritmo de recomendação é uma técnica complexa que envolve uma série de etapas, desde a coleta de dados até a implementação. Quais são as etapas fundamentais e como elas contribuem para a eficácia do sistema de recomendação?
+A) Coleta de dados, treinamento de modelo, implementação do sistema.
+B) Coleta de dados, análise de dados, desenvolvimento do aplicativo.
+C) Coleta de dados, entrega de música, interação do usuário.
+D) Coleta de dados, reprodução de música, feedbacks do usuário.
+E) Coleta de dados, desenvolvimento do aplicativo, feedback.
+Resposta: A
+--
+
+Suponha que você esteja desenvolvendo um algoritmo de otimização para planejar a rota mais eficiente para a entrega de mercadorias em uma área urbana, quais são os desafios práticos, como congestionamento do tráfego e restrições de tempo, que você precisaria considerar ao criar um algoritmo de roteamento de entregas para o mundo real?
+A) Os desafios práticos não afetam a otimização do roteamento de entregas.
+B) Os desafios práticos podem ser ignorados em favor da simplicidade.
+C) Os desafios práticos, como o tráfego, são fatores críticos a serem considerados na otimização do roteamento de entregas.
+D) Os desafios práticos só afetam algoritmos de roteamento em áreas rurais.
+E) Os desafios práticos, como o tráfego e as restrições de tempo, são irrelevantes para algoritmos de roteamento de entregas, pois os algoritmos são capazes de criar rotas perfeitas independentemente das condições do mundo real.
+Resposta: C

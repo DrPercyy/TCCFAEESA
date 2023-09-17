@@ -1,0 +1,25 @@
+﻿O que é informação?
+A) Dados brutos sem significado.
+B) Um conjunto de números aleatórios.
+C) Conhecimento e dados organizados de forma significativa.
+D) Informações sigilosas que não podem ser compartilhadas.
+E) Um tipo de linguagem de programação.
+Resposta: C
+– 
+
+
+O que é um sistema de informação?
+A) Um software de edição de texto.
+B) Uma rede social popular.
+C) Uma ferramenta para armazenar dados sem processamento.
+D) Um conjunto de componentes inter-relacionados que coletam, processam, armazenam e distribuem informações.
+E) Uma unidade de processamento central em um computador.
+Resposta: D
+–
+O que é a "integridade da informação"?
+A) A capacidade de uma informação ser acessada por qualquer pessoa a qualquer momento.
+B) A qualidade da informação, garantindo que ela seja precisa e confiável.
+C) A velocidade com que a informação é transmitida pela internet.
+D) A quantidade de informações disponíveis em um sistema.
+E) A complexidade das informações em um banco de dados.
+Resposta: E
