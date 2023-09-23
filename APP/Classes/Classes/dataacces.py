@@ -1,6 +1,6 @@
 import mysql.connector
 
-dbcon = ('localhost', 'TCCAPP', 'TCC01', 'tccapp')
+dbcon= ('localhost', 'root', 'tcc01', 'tccapp')
 
 class MySQLConnector:
     def __init__(self, host, user, password, database):
@@ -44,9 +44,11 @@ class MySQLConnector:
             cursor = self.connection.cursor()
             cursor.execute(query)
             self.connection.commit()
+            print("Insert executado com sucesso!")
             return cursor.lastrowid
         except mysql.connector.Error as err:
             self.connection.rollback()
+            print(f"Erro ao executar o insert: {err}")
             return f"Erro ao executar o insert: {err}"
     
 

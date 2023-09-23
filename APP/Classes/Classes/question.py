@@ -1,7 +1,8 @@
 from Classes import statement
 from Classes import options
 from Classes import dataacces
-dbcon= ('localhost', 'TCCAPP', 'TCC01', 'tccapp')
+
+dbcon= ('localhost', 'root', 'tcc01', 'tccapp')
 class Question:
 
   def __init__(self, text, options):
@@ -53,11 +54,10 @@ class OptionList:
         questions = question_doc.split("--")
         db = dataacces.MySQLConnector(dbcon[0], dbcon[1], dbcon[2], dbcon[3])
         db.connect()
-        id = db.execute_count("SELECT *from questao;")
-        id = id + 1
+        idreturn = db.execute_query("SHOW TABLE STATUS LIKE 'QUESTAO'")
         id_alt = db.execute_count("SELECT *FROM alternativas;")
         id_alt =id_alt+ 1
-
+        id = idreturn[0][10]
         for question in questions:
            question_list.append(parse_multiple_choice_question(id, question, id_alt))
            id = id + 1
