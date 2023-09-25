@@ -18,10 +18,8 @@ class MySQLConnector:
                 password=self.password,
                 database=self.database
             )
-            print("Conexão estabelecida com sucesso!")
             return "Conexão estabelecida com sucesso!"
         except mysql.connector.Error as err:
-            print(f"Erro na conexão com o banco de dados: {err}")
             return f"Erro na conexão com o banco de dados: {err}"
 
     def disconnect(self):
@@ -39,7 +37,6 @@ class MySQLConnector:
             return cursor.fetchall()
         except mysql.connector.Error as err:
             self.connection.rollback()
-            print( f"Erro ao executar o select: {err}")
             return f"Erro ao executar o select: {err}"
 
     def execute_insert(self, query):
