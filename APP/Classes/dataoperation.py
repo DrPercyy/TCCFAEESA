@@ -113,7 +113,8 @@ class Conteudo:
             
 
 
-##classe que irá manipular a tabela Questao juntamente com as alternativas que contém as seguintes colunas (ID_QUESTAO, TEXTO_QUESTAO, NIVEL__QUESTAO, CONTEUDO_ID_CONTUDO) E (ID_ALTERNATIVA, QUESTAO_ID_QUESTAO, ALTER_TEXTO, ALTER_CORR).
+##classe que irá manipular a tabela Questao juntamente com as alternativas que contém as seguintes colunas (ID_QUESTAO, TEXTO_QUESTAO, NIVEL__QUESTAO, CONTEUDO_ID_CONTUDO) 
+# E (ID_ALTERNATIVA, QUESTAO_ID_QUESTAO, ALTER_TEXTO, ALTER_CORR).
 
 class Questao:
     #FUNCAO QUE RECEBE UMA QUESTION_LIST E INSERE NO BANCO DE DADOS
