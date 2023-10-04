@@ -42,6 +42,7 @@ class QuestionList:
            id = id + 1
 
         return QuestionList(question_list)
+    
 
 
 class ParseQuestion:
@@ -110,7 +111,7 @@ class OptionList:
         option_list = []
         db = dataaccess.MySQLConnector()
         db.connect()
-        id_alt = db.next_id("ALTERNATIVAS")
+        id_alt = db.next_id("ALTERNATIVA")
         for option in options:
             option_index = options.index(option)
             option_list.append(Options.set_options(id, option, option_index, correct_answer))
@@ -156,4 +157,4 @@ class Options:
         return self.question_id
     
     def to_string(self):
-        return f"'{self.fk}' , '{self.option_text}', '{self.correct_answer}'"
+        return f"{self.fk} , '{self.option_text}', {self.correct_answer}"

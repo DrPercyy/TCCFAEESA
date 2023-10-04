@@ -8,6 +8,9 @@ from Classes.dataoperation import Curso, Disciplina, Conteudo, Questao
 question_string = string_question.FileManager().read_file_to_string()
 questoes = question.QuestionList.list_question(question_string)
 
+
+
+
 #print(Curso().select_disciplina_curso(6))
 #print(Curso().select_curso(6))
 #print(Disciplina().select_disciplina())
@@ -16,12 +19,8 @@ questoes = question.QuestionList.list_question(question_string)
 
 #print(Disciplina().select_conteudo_disciplina(1))
 
-#QuestionList.list_question(question_string)a
-db = MySQLConnector()
-db.connect()
-
 
 Curso().insert_curso("Ciencia da Computacao")   
 Disciplina().insert_disciplina("Laboratorio de Programacao I", 1)
-Conteudo().insert_conteudo("Estruturas de Repeticao", 1)
+Conteudo().insert_conteudo("Arranjos", 1)
 Questao().insert_question_list(questoes, 1)

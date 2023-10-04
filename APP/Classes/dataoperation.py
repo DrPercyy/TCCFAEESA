@@ -26,7 +26,7 @@ class Curso:
         else:
             db = MySQLConnector()
             db.connect()
-            query = "SELECT * FROM CURSO WHERE id_curso = {}".format(id)
+            query = "SELECT * FROM CURSO WHERE ID = {}".format(id)
             result = db.execute_query(query)
             db.disconnect()
             return result
@@ -49,7 +49,7 @@ class Disciplina:
         db.connect()
         query = "INSERT INTO DISCIPLINA (nome_disciplina) VALUES ('{}')".format(nome_disciplina)
         db.execute_insert(query)
-        query = "INSERT INTO DISCIPLINA_HAS_CURSO (DISCIPLINA_id_disciplina, CURSO_id_curso) VALUES ((SELECT id_disciplina FROM DISCIPLINA WHERE nome_disciplina = '{}'), (SELECT id_curso FROM CURSO WHERE id_curso = {}))".format(nome_disciplina, id_curso)
+        query = "INSERT INTO CURSO_HAS_DISCIPLINA (DISCIPLINA_ID, CURSO_ID) VALUES ((SELECT ID FROM DISCIPLINA WHERE nome_disciplina = '{}'), (SELECT id FROM CURSO WHERE id = {}))".format(nome_disciplina, id_curso)
         db.execute_insert(query)
         db.disconnect()
     
@@ -66,7 +66,7 @@ class Disciplina:
         else:
             db = MySQLConnector()
             db.connect()
-            query = "SELECT * FROM DISCIPLINA WHERE id_disciplina = {}".format(id)
+            query = "SELECT * FROM DISCIPLINA WHERE ID = {}".format(id)
             result = db.execute_query(query)
             db.disconnect()
             return result
@@ -87,15 +87,13 @@ class Conteudo:
         def insert_conteudo(self, nome_conteudo, id_disciplina):
             db = MySQLConnector()
             db.connect()
-            query = "INSERT INTO CONTEUDO (nome_conteudo) VALUES ('{}')".format(nome_conteudo)
-            db.execute_insert(query)
-            query = "INSERT INTO CONTEUDO_HAS_DISCIPLINA (CONTEUDO_id_conteudo, DISCIPLINA_id_disciplina) VALUES ((SELECT id_conteudo FROM CONTEUDO WHERE nome_conteudo = '{}'), (SELECT id_disciplina FROM DISCIPLINA WHERE id_disciplina = {}))".format(nome_conteudo, id_disciplina)
+            query = "INSERT INTO CONTEUDO (nome_conteudo, DISCIPLINA_ID) VALUES ('{}', {})".format(nome_conteudo, id_disciplina)
             db.execute_insert(query)
             db.disconnect()
         
         #função que retorna todos os conteúdos cadastrados no banco de dados
         def select_conteudo(self, id=None):
-    
+
             if id == None:
                 db = MySQLConnector()
                 db.connect()
@@ -106,15 +104,12 @@ class Conteudo:
             else:
                 db = MySQLConnector()
                 db.connect()
-                query = "SELECT * FROM CONTEUDO WHERE id_conteudo = {}".format(id)
+                query = "SELECT * FROM CONTEUDO WHERE ID = {}".format(id)
                 result = db.execute_query(query)
                 db.disconnect()
                 return result
-            
-
-
-##classe que irá manipular a tabela Questao juntamente com as alternativas que contém as seguintes colunas (ID_QUESTAO, TEXTO_QUESTAO, NIVEL__QUESTAO, CONTEUDO_ID_CONTUDO) 
-# E (ID_ALTERNATIVA, QUESTAO_ID_QUESTAO, ALTER_TEXTO, ALTER_CORR).
+    
+##classe que irá manipular a tabela Questao juntamente com as alternativas que contém as seguintes colunas (ID_QUESTAO, TEXTO_QUESTAO, NIVEL__QUESTAO, CONTEUDO_ID_CONTUDO) E (ID_ALTERNATIVA, QUESTAO_ID_QUESTAO, ALTER_TEXTO, ALTER_CORR).
 
 class Questao:
     #FUNCAO QUE RECEBE UMA QUESTION_LIST E INSERE NO BANCO DE DADOS
@@ -124,9 +119,9 @@ class Questao:
         db = MySQLConnector()
         db.connect()
         for question in question_list.question_list:
-            query = "INSERT INTO QUESTAO (texto_questao, nivel_questao, CONTEUDO_id_conteudo) VALUES ("+question.statement.to_string()+", 1, {})".format(id_conteudo)
+            query = "INSERT INTO QUESTAO (texto_questao, nivel_questao, CONTEUDO_ID) VALUES ("+question.statement.to_string()+", 1, {})".format(id_conteudo)
             db.execute_insert(query)
             for option in question.options.option_list:
-                query = "INSERT INTO ALTERNATIVAS (QUESTAO_id_questao, alter_texto, alter_corr) VALUES ("+option.to_string()+")"
+                query = "INSERT INTO ALTERNATIVA (QUESTAO_ID, alter_texto, alter_corr) VALUES ("+option.to_string()+")"
                 db.execute_insert(query)
         db.disconnect()
