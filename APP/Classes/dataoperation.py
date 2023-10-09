@@ -35,7 +35,7 @@ class Curso:
     def select_disciplina_curso(self, id_curso):
         db = MySQLConnector()
         db.connect()
-        query = "SELECT * FROM DISCIPLINA WHERE id_disciplina IN (SELECT DISCIPLINA_id_disciplina FROM DISCIPLINA_HAS_CURSO WHERE CURSO_id_curso = {})".format(id_curso)
+        query = "SELECT * FROM DISCIPLINA WHERE ID IN (SELECT DISCIPLINA_ID FROM CURSO_HAS_DISCIPLINA WHERE CURSO_ID = {})".format(id_curso)
         result = db.execute_query(query)
         db.disconnect()
         return result
@@ -43,7 +43,7 @@ class Curso:
 #classe que irá manipular a tabela Disciplina que contém as seguintes colunas (id_disciplina, nome_disciplina)
 class Disciplina:
 
-    #função que insere uma disciplina no banco de dados e relaciona com o curso utilizando a tabela disciplina_has_curso
+    #função que insere uma disciplina no banco de dados e relaciona com o curso utilizando a tabela CURSO_HAS_DISCIPLINA
     def insert_disciplina(self, nome_disciplina, id_curso):
         db = MySQLConnector()
         db.connect()
@@ -71,15 +71,16 @@ class Disciplina:
             db.disconnect()
             return result
         
-    #função que retorna todos os conteúdos relacionados a uma disciplina
-    def select_conteudo_disciplina(self, id_disciplina):
+
+    #funçao que faz um link entre uma disciplina e um curso
+    def insert_disciplina_curso(self, id_disciplina, id_curso):
         db = MySQLConnector()
         db.connect()
-        query = "SELECT * FROM CONTEUDO WHERE id_conteudo IN (SELECT CONTEUDO_id_conteudo FROM CONTEUDO_HAS_DISCIPLINA WHERE DISCIPLINA_id_disciplina = {})".format(id_disciplina)
-        result = db.execute_query(query)
+        query = "INSERT INTO CURSO_HAS_DISCIPLINA (DISCIPLINA_ID, CURSO_ID) VALUES ({}, {})".format(id_disciplina, id_curso)
+        db.execute_insert(query)
         db.disconnect()
-        return result
-        
+
+
 #classe que irá manipular a tabela Conteudo que contém as seguintes colunas (id_conteudo, nome_conteudo)
 class Conteudo:
     
@@ -91,7 +92,7 @@ class Conteudo:
             db.execute_insert(query)
             db.disconnect()
         
-        #função que retorna todos os conteúdos cadastrados no banco de dados
+        #função que retorna todos os conteúdos cadastrados no banco de dados, se o conteudo do ID for diferente de None, retorna apenas os conteudos do ID da disciplina
         def select_conteudo(self, id=None):
 
             if id == None:
@@ -104,7 +105,7 @@ class Conteudo:
             else:
                 db = MySQLConnector()
                 db.connect()
-                query = "SELECT * FROM CONTEUDO WHERE ID = {}".format(id)
+                query = "SELECT * FROM CONTEUDO WHERE DISCIPLINA_ID = {}".format(id)
                 result = db.execute_query(query)
                 db.disconnect()
                 return result
@@ -115,13 +116,38 @@ class Questao:
     #FUNCAO QUE RECEBE UMA QUESTION_LIST E INSERE NO BANCO DE DADOS
 
 
-    def insert_question_list(self, question_list, id_conteudo):
+    def insert_question_list(self, question_list, disciplina_id ,conteudo_id):
         db = MySQLConnector()
         db.connect()
         for question in question_list.question_list:
-            query = "INSERT INTO QUESTAO (texto_questao, nivel_questao, CONTEUDO_ID) VALUES ("+question.statement.to_string()+", 1, {})".format(id_conteudo)
+            query = "INSERT INTO QUESTAO (texto_questao, nivel_questao, DISCIPLINA_ID , CONTEUDO_ID) VALUES ("+question.statement.to_string()+", 1,{}, {})".format(disciplina_id, conteudo_id)
             db.execute_insert(query)
             for option in question.options.option_list:
                 query = "INSERT INTO ALTERNATIVA (QUESTAO_ID, alter_texto, alter_corr) VALUES ("+option.to_string()+")"
                 db.execute_insert(query)
         db.disconnect()
+
+
+    def select_questao_by_disciplina(self, id_disciplina):
+        db = MySQLConnector()
+        db.connect()
+        query = "SELECT questao.texto_questao as Questao, GROUP_CONCAT(alternativa.alter_texto SEPARATOR ' -- ') AS Alternativas"+(
+        " FROM questao")+(
+        " INNER JOIN alternativa ON questao.id = alternativa.questao_id")+(
+        " where questao.conteudo_id = "+str(id_disciplina)+"")+(
+        " GROUP BY questao.texto_questao;")
+        result = db.execute_query(query)
+        db.disconnect()
+        return result
+    
+    def select_questao_by_conteudo(self, id_conteudo):
+        db = MySQLConnector()
+        db.connect()
+        query = "SELECT questao.texto_questao as Questao, GROUP_CONCAT(alternativa.alter_texto SEPARATOR ' -- ') AS Alternativas"+(
+        " FROM questao")+(
+        " INNER JOIN alternativa ON questao.id = alternativa.questao_id")+(
+        " where questao.conteudo_id = "+str(id_conteudo)+"")+(
+        " GROUP BY questao.texto_questao;")
+        result = db.execute_query(query)
+        db.disconnect()
+        return result

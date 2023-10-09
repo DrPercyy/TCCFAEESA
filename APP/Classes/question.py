@@ -15,6 +15,8 @@ class Statement:
     
     def to_string(self):
         return f"'{self.text}'"
+    def to_string2(self):
+        return f"Enun.: {self.text}"
 
 
 class QuestionList:
@@ -43,6 +45,11 @@ class QuestionList:
 
         return QuestionList(question_list)
     
+    def to_string(self):
+        for question in self.question_list:
+            print('\n'+question.statement.to_string2())
+            for option in question.options.option_list:
+                print(option.to_string2())
 
 
 class ParseQuestion:
@@ -158,3 +165,6 @@ class Options:
     
     def to_string(self):
         return f"{self.fk} , '{self.option_text}', {self.correct_answer}"
+    
+    def to_string2(self):
+        return f"{self.option_text}"
