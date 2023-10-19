@@ -1,11 +1,11 @@
-﻿O que é Tecnologia da Informação (TI)?
+O que é Tecnologia da Informação (TI)?
 A) Um programa de televisão sobre inovações tecnológicas.
 B) A disciplina que estuda a história da informação.
 C) Um conjunto de práticas e tecnologias usadas para gerenciar informações e processos.
 D) Um método para criar arte digital.
 E) Um tipo de linguagem de programação.
 Resposta: C
-–
+--
 
 
 Qual é o principal objetivo da gestão de TI em uma organização?
@@ -15,7 +15,7 @@ C) Garantir a conformidade com leis de direitos autorais.
 D) Maximizar o valor dos recursos de TI para atender às metas de negócios.
 E) Desenvolver software personalizado para cada funcionário.
 Resposta: D
-–
+--
 
 
 O que é um Data Center?

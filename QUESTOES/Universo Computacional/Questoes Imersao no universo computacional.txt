@@ -1,11 +1,11 @@
-﻿O que é um arquivo no contexto de computação?
+O que é um arquivo no contexto de computação?
 A) Uma unidade de armazenamento de dados dentro do processador.
 B) Um dispositivo de entrada de dados, como um teclado.
 C) Um conjunto de instruções para um programa de computador.
 D) Uma unidade organizacional em um sistema operacional.
 E) Uma coleção de dados armazenados em um meio de armazenamento, como um disco rígido.
 Resposta: E
-–
+--
 
 
 O que é a memória RAM (Random Access Memory) em um computador?
@@ -15,7 +15,7 @@ C) Uma parte do processador que executa cálculos complexos.
 D) Uma memória temporária que armazena dados enquanto o computador está ligado.
 E) Uma unidade de processamento gráfico.
 Resposta: D
-–
+--
 
 
 O que é a programação orientada a objetos?

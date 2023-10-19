@@ -1,11 +1,11 @@
-﻿O que é plágio em relação à ética na computação?
+O que é plágio em relação à ética na computação?
 A) O ato de compartilhar abertamente o código-fonte de software.
 B) A prática de copiar informações de uma fonte sem dar crédito adequado.
 C) Aqueles que contribuem para projetos de código aberto.
 D) A promoção de software proprietário.
 E) O uso de recursos de TI no trabalho.
 Resposta: B
-– 
+--
 
 
 Qual é um dos principais princípios éticos na programação de computadores?
@@ -15,7 +15,7 @@ C) Priorizar a velocidade de desenvolvimento sobre a qualidade do código.
 D) Ser honesto e transparente sobre erros e vulnerabilidades de software.
 E) Não documentar o código para manter a exclusividade.
 Resposta: D
-–
+--
 
 
 O que significa "diversidade" no contexto da ética na computação?

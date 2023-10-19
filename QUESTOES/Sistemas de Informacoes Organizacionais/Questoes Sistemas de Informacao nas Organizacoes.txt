@@ -1,11 +1,11 @@
-﻿O que é um Sistema de Informação Gerencial (SIG) em uma organização?
+O que é um Sistema de Informação Gerencial (SIG) em uma organização?
 A) Um conjunto de regras e regulamentos internos.
 B) Um sistema de segurança cibernética.
 C) Um software de contabilidade.
 D) Um sistema que fornece informações estruturadas para apoiar o processo de tomada de decisão.
 E) Um sistema de gerenciamento de projetos.
 Resposta: D
-–
+--
 
 
 Qual é o papel dos sistemas de informação em uma organização?
@@ -15,7 +15,7 @@ C) Coletar, armazenar, processar e distribuir informações relevantes para o fu
 D) Fornecer entretenimento para os funcionários.
 E) Substituir completamente a necessidade de funcionários.
 Resposta: C
-–
+--
 
 
 O que é um Sistema de Informação Executiva (SIE) nas organizações?
