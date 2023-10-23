@@ -1,10 +1,11 @@
 #classe princeipal que realiza a chamada dos métodos da classe DataAccess
 from Classes.string_question import FileManager
 import Classes.question as question
-from Classes.dataoperation import Curso, Disciplina, Conteudo, Questao, Aluno, Matricula, Notas
-from Classes.class_operation import Student, Exam
+from Classes.dataoperation import Curso, Disciplina, Conteudo, Questao, Aluno, Matricula, Notas, HistProva, Professor, Turma
+from Classes.class_operation import Student
 from Classes.parse_latex import ParseLatex, QrCode
-import random, qrcode
+import random
+from datetime import datetime
 
 
 class Main:
@@ -306,7 +307,7 @@ class Main:
 
         
 
-Main(debug= False)
+Main(debug= True)
 def alterar_status():
     print("Qual aluno desja alterar o status? (DIGITE O ID: )")
     for aluno in Aluno().select_aluno():
@@ -320,7 +321,7 @@ def alterar_status():
     print("Qual disciplina deseja alterar o status? (DIGITE O ID: )")
 
     for disciplina in Matricula().select_matricula_by_aluno(id_aluno):
-        print("ID: " + str(Disciplina().select_disciplina(disciplina[0])[0][0]) + " - " + str(Disciplina().select_disciplina(disciplina[0])[0][1]))
+        print("ID: " + str(Disciplina().select_disciplina(disciplina[3])[0][0]) + " - " + str(Disciplina().select_disciplina(disciplina[3])[0][1]))
 
     try:
         id_disciplina = int(input())
@@ -409,7 +410,7 @@ def cadastrar_nota():
     print("O Aluno está matriculado nas seguintes disciplinas:")
 
     for disciplina in Matricula().select_matricula_by_aluno(id_aluno):
-        print("ID: " + str(Disciplina().select_disciplina(disciplina[0])[0][0]) + " - " + str(Disciplina().select_disciplina(disciplina[0])[0][1]))
+        print("ID: " + str(Disciplina().select_disciplina(disciplina[3])[0][0]) + " - " + str(Disciplina().select_disciplina(disciplina[3])[0][1]))
 
     try:
         id_disciplina = int(input("A qual disciplina deseja cadastrar a nota? (DIGITE O ID: )"))
@@ -427,7 +428,7 @@ def cadastrar_nota():
 
     nota = input("Digite a nota do aluno: ")
 
-    print("Confirma os seguintes dados? \n Aluno: "+str(Aluno().select_aluno(id_aluno)[0][1])+"\n Disciplina: "+str(Disciplina().select_disciplina(id_disciplina)[0][1])+"\n Conteudo: "+str(Conteudo().select_conteudo(id_conteudo)[0][1])+"\n Nota: "+str(nota)+"\n (S/N)")
+    print("Confirma os seguintes dados? \n Aluno: "+str(Aluno().select_aluno(id_aluno)[0][1])+"\n Disciplina: "+str(Disciplina().select_disciplina(id_disciplina)[0][1])+"\n Conteudo: "+str(Conteudo().select_conteudo_by_id(id_conteudo)[0][1])+"\n Nota: "+str(nota)+"\n (S/N)")
     opcao = input()
     if opcao == "S" or opcao == "s":
         print("Cadastrando a nota...")
@@ -484,58 +485,126 @@ def listar_matricula():
 
     #self.listarDados()
 
+def cadastrar_professor():
+    nome_professor = input("Digite o nome do professor: ")
+    login =  input("Digite o nome de usuário do professor: ")
+    print("Confirma os seguintes dados? \n Nome: "+str(nome_professor)+"\n Login: "+str(login))
+    opcao = input("(S/N): ")
+    if opcao == "S" or opcao == "s":
+        senha = input("Digite a senha do professor: ")
+        print("Cadastrando o professor...")
+        Professor().insert_professor(nome_professor, login, senha)
+    else:
+        print("Professor não cadastrado!")
+        self.inserirDados()
+        pass
+
+def cadastrar_turma():
+    for curso in Curso().select_curso():
+        print("ID: " + str(curso[0]) + " - " + str(curso[1]))
+    try:
+        id_curso = int(input("A qual curso deseja inserir a turma? (DIGITE O ID): "))
+    except ValueError:
+        print("Opcao invalida!")
+        self.inserirDados()
+    for disciplina in Curso().select_disciplina_curso(id_curso):
+        print("ID: " + str(disciplina[0]) + " - " + str(disciplina[1]))
+    try:
+        id_disciplina = int(input("A qual disciplina deseja inserir a turma? (DIGITE O ID): "))
+    except ValueError:
+        print("Opcao invalida!")
+        self.inserirDados()
+
+    for professor in Professor().select_professor():
+        print("ID: " + str(professor[0]) + " - " + str(professor[1]))
+    try:
+        id_professor = int(input("Qual professor deseja inserir a turma? (DIGITE O ID): "))
+    except ValueError:
+        print("Opcao invalida!")
+        self.inserirDados()
+    
+
+    
+
+    nome_turma = input("Digite o nome da turma: ")
+    opcao = input('Deseja inserir a turma "'+ nome_turma+'" ao Curso "'+str(
+        Curso().select_curso(id_curso)[0][1])+'"? (S/N): ')
+    if opcao == "S" or opcao == "s":
+        print("Inserindo a turma {}...".format(nome_turma))
+        Turma().insert_turma(nome_turma, id_curso)
+        self.inserirDados()
+    else:
+        print("Turma não inserida!")
+        self.inserirDados()
+        pass
+    pass
+
+
+
+def selecionar_elementos_aleatorios(lista, num_elementos):
+    # Verifique se o número de elementos solicitados não excede o tamanho da lista
+    if num_elementos > len(lista):
+        raise ValueError("Número de elementos solicitados é maior do que o tamanho da lista.")
+
+    # Embaralhe a lista original
+    random.shuffle(lista)
+
+    # Selecione os primeiros 'num_elementos' elementos da lista embaralhada
+    elementos_selecionados = lista[:num_elementos]
+
+    return elementos_selecionados
 
 
 #cadastrar_aluno()
 #matricular_aluno()
-alterar_status()
+#alterar_status()
 #cadastrar_nota()
 #listar_matricula()
 
-#Exam().generate_exam_by_aluno()
 
 
+date = input("dd/mm/aaaa: ")
 
-#listinha = Questao().select_questao_by_conteudo(1)
-##print(listinha)
-##for questao in listinha:
-##    alter = questao[1].split(' -- ')
-##    print(questao[0])
-##    for i in range(len(alter)):
-##        print(alter[i] + " - " + questao[2].split(' -- ')[i])
-#
-#questionário = []
-#alters = []
-#gab = []
-#
-#for questao in listinha:
-#    alternativas = questao[1].split(' -- ')
-#    # Formatar os dados no estilo desejado
-#    enunciado = questao[0]
-#    alternativas_formatadas = f"[{']['.join(alternativas)}]"
-#    
-#    # Obtém o gabarito no formato desejado
-#    gabarito = [f"{i+1} - {letra}" for i, letra in enumerate('ABCDE') if "1" == questao[2].split(' -- ')[i]]
-#    q = []
-#    q.append(enunciado)
-#    questionário.append(q)
-#    alters.append(alternativas)
-#    gab.append(gabarito)
-#    #print(f"Enunciado: {enunciado}")
-#    #print(f"Alternativas: {alternativas_formatadas}")
-#    #print(f"Gabarito: {gabarito}\n")
-#
-##print(questionário)
-##print(alters)
-##print(gabarito)
-#
-#QrCode(gab).generate_qrcode().save("qrcode.png")
-#Disc = Disciplina().select_disciplina(1)[0][1]
-#
-#print(len(questionário))
-#
-#prova = ParseLatex(questionário, alters, "Prova",  Disc, "ALUNO", "Julio Cesar", len(questionário))
-#prova.generate_latex()
-#prova.generate_pdf()
-#
+date_format = datetime.strptime(date, '%d/%m/%Y')
+
+matriz_prova = []
+lista_questoes = []
+for mat in Matricula().select_matricula_by_aluno(2):
+    for disc in Disciplina().select_disciplina(mat[3]):
+        for cont in Conteudo().select_conteudo(disc[0]):
+            lista_questoes = Questao().select_questao_by_conteudo(cont[0])
+            matriz_prova.append(lista_questoes)
+
+lista_prova = selecionar_elementos_aleatorios(matriz_prova, 10)
+questionário = []
+alters = []
+gab = []
+gabcod = ""
+
+for questao in lista_prova:
+    alternativas = questao[0][1].split(' -- ')
+    # Formatar os dados no estilo desejado
+    enunciado = questao[0][0]
+    alternativas_formatadas = f"[{']['.join(alternativas)}]"
+    
+    # Obtém o gabarito no formato desejado
+    gabarito = [f"{i+1} - {letra}" for i, letra in enumerate("ABCDE") if "1" == questao[0][2].split(' -- ')[i]]
+    q = []
+    q.append(enunciado)
+    questionário.append(q)
+    alters.append(alternativas)
+    gab.append(gabarito[0])
+    gabcod = gabcod + gabarito[0] +" -- "
+   
+
+QrCode(gab).generate_qrcode().save("qrcode.png")
+Disc = Disciplina().select_disciplina(1)[0][1]
+
+print(len(questionário))
+
+HistProva().insert_historico(gabcod, date_format, 2)
+prova = ParseLatex(questionário, alters, "ProvaC1",  Disc, "Data : " + date, "Aluno: "+ Aluno().select_aluno(2)[0][1], len(questionário))
+prova.generate_latex()
+prova.generate_pdf()
+
 

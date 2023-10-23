@@ -109,6 +109,14 @@ class Conteudo:
                 result = db.execute_query(query)
                 db.disconnect()
                 return result
+        
+        def select_conteudo_by_id(self, id):
+            db = MySQLConnector()
+            db.connect()
+            query = "SELECT * FROM CONTEUDO WHERE ID = {}".format(id)
+            result = db.execute_query(query)
+            db.disconnect()
+            return result
     
 
 ##classe que irá manipular a tabela Questao juntamente com as alternativas que contém as seguintes colunas (ID_QUESTAO, TEXTO_QUESTAO, NIVEL__QUESTAO, CONTEUDO_ID_CONTUDO) E (ID_ALTERNATIVA, QUESTAO_ID_QUESTAO, ALTER_TEXTO, ALTER_CORR).
@@ -328,7 +336,9 @@ class Notas:
             db.disconnect()
             return result
  
-    
+
+
+
 #class que irá manipular a tabela Historico de Provas que contém as seguintes colunas (id, gab_cod, data_prova, aluno_id)
 class HistProva:
 
@@ -336,7 +346,7 @@ class HistProva:
     def insert_historico(self, gabarito, data_prova, id_aluno):
         db = MySQLConnector()
         db.connect()
-        query = "INSERT INTO HIST_PROVA (GAB_COD, DATA_PROVA, ALUNO_ID) VALUES ('{}', '{}', {})".format(gabarito, data_prova, id_aluno)
+        query = "INSERT INTO HIST_PROVA (GAB_CODE, DATA_PROVA, ALUNO_ID) VALUES ('{}', '{}', {})".format(gabarito, data_prova, id_aluno)
         db.execute_insert(query)
         db.disconnect()
     
@@ -368,9 +378,91 @@ class HistProva:
 
     #função que retorna todas uma prova pelo ID
     def select_historico_by_id(self, id):
+
         db = MySQLConnector()
         db.connect()
         query = "SELECT * FROM HIST_PROVA WHERE ID = {}".format(id)
         result = db.execute_query(query)
         db.disconnect()
         return result
+    
+
+#classe que irá manipular a tabela Turma que contém as seguintes colunas (id_turma, nome_turma) tendo contraints com a tabela TURMA_HAS_MATRICULA e PROFESSOR_HAS_TURMA
+class Turma:
+    def insert_turma(self, nome_turma):
+        db = MySQLConnector()
+        db.connect()
+        query = "INSERT INTO TURMA (NOME) VALUES ('{}')".format(nome_turma)
+        db.execute_insert(query)
+        db.disconnect()
+    
+    def select_turma(self, id=None):
+        if id == None:
+            db = MySQLConnector()
+            db.connect()
+            query = "SELECT * FROM TURMA"
+            result = db.execute_query(query)
+            db.disconnect()
+            return result
+        else:
+            db = MySQLConnector()
+            db.connect()
+            query = "SELECT * FROM TURMA WHERE ID = {}".format(id)
+            result = db.execute_query(query)
+            db.disconnect()
+            return result
+    
+    def insert_turma_matricula(self, id_turma, id_matricula):
+        db = MySQLConnector()
+        db.connect()
+        query = "INSERT INTO TURMA_HAS_MATRICULA (TURMA_ID, MATRICULA_ID) VALUES ({}, {})".format(id_turma, id_matricula)
+        db.execute_insert(query)
+        db.disconnect()
+    
+    def insert_turma_professor(self, id_turma, id_professor):
+        db = MySQLConnector()
+        db.connect()
+        query = "INSERT INTO PROFESSOR_HAS_TURMA (TURMA_ID, PROFESSOR_ID) VALUES ({}, {})".format(id_turma, id_professor)
+        db.execute_insert(query)
+        db.disconnect()
+
+    def select_turma_professor(self, id_professor):
+        db = MySQLConnector()
+        db.connect()
+        query = "SELECT * FROM TURMA WHERE ID IN (SELECT TURMA_ID FROM PROFESSOR_HAS_TURMA WHERE PROFESSOR_ID = {})".format(id_professor)
+        result = db.execute_query(query)
+        db.disconnect()
+        return result
+    
+    def select_turma_matricula(self, id_matricula):
+        db = MySQLConnector()
+        db.connect()
+        query = "SELECT * FROM TURMA WHERE ID IN (SELECT TURMA_ID FROM TURMA_HAS_MATRICULA WHERE MATRICULA_ID = {})".format(id_matricula)
+        result = db.execute_query(query)
+        db.disconnect()
+        return result
+    
+#classe que irá manipular a tabela Professor que contém as seguintes colunas (id_professor, nome_professor, login_professor, senha_professor)
+class Professor:
+    def insert_professor(self, nome_professor, login_professor, senha_professor):
+        db = MySQLConnector()
+        db.connect()
+        query = "INSERT INTO PROFESSOR (NOME, LOGIN, SENHA) VALUES ('{}', '{}', '{}')".format(nome_professor, login_professor, senha_professor)
+        db.execute_insert(query)
+        db.disconnect()
+    
+    def select_professor(self, id=None):
+        if id == None:
+            db = MySQLConnector()
+            db.connect()
+            query = "SELECT * FROM PROFESSOR"
+            result = db.execute_query(query)
+            db.disconnect()
+            return result
+        else:
+            db = MySQLConnector()
+            db.connect()
+            query = "SELECT * FROM PROFESSOR WHERE ID = {}".format(id)
+            result = db.execute_query(query)
+            db.disconnect()
+            return result

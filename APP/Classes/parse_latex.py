@@ -5,12 +5,12 @@ import qrcode
 
 
 class ParseLatex:
-    def __init__(self, questoes, gabarito, nome_prova, nome_disciplina, nome_professor, nome_aluno, numero_questoes):
+    def __init__(self, questoes, gabarito, nome_prova, nome_disciplina, data_prova, nome_aluno, numero_questoes):
         self.questoes = questoes
         self.gabarito = gabarito
         self.nome_prova = nome_prova
         self.nome_disciplina = nome_disciplina
-        self.nome_professor = nome_professor
+        self.data_prova = data_prova
         self.nome_aluno = nome_aluno
         self.numero_questoes = numero_questoes
         self.document = Document(documentclass='exam', document_options=['addpoints', 'answers'])
@@ -31,7 +31,7 @@ class ParseLatex:
         with self.document.create(Figure(position='htbp')) as logo_table:
             logo_table.append(Command('centering'))
             with logo_table.create(Tabular('p{5.5in}')) as table:
-                table.add_row([bold(self.nome_professor + ' - ' + self.nome_aluno)])
+                table.add_row([bold(self.nome_aluno + ' - ' + self.data_prova)])
                 table.add_hline()
                 table.add_row([bold(self.nome_prova + ' - ' + self.nome_disciplina)])
             with self.document.create(MiniPage(width=r'1\textwidth')) as qrcode:
@@ -41,23 +41,22 @@ class ParseLatex:
             
 
     def generate_gabarito(self):
-        with self.document.create(Tabular("|c|c|")) as table:
-            table.add_hline()
-            table.add_row(["Questão", "Resposta"])
-            table.add_hline()
+        for j in range(self.numero_questoes):
+            if j == 0 or j % 5 == 0 :
 
-            for i in range(1, self.numero_questoes + 1):
-                table.add_row([str(i), ""])
-                table.add_hline()
+                with self.document.create(Tabular("|c|c|")) as table:
+                    table.add_hline()
+                    table.add_row(["Questão", "Resposta"])
+                    table.add_hline()
+            table.add_row([str(j + 1), ""])
+            table.add_hline()
 
     def generate_questions(self):
         self.document.append(Command('begin', 'questions'))
         for i in range(self.numero_questoes):
             self.document.append(Command('question', self.questoes[i]))
-            print(self.questoes[i])
             self.document.append(Command('begin', 'choices'))
             for j in range(len(self.gabarito[i])):
-                print(self.gabarito[i][j])
                 self.document.append(Command('choice', self.gabarito[i][j]))
             self.document.append(Command('end', 'choices'))
         self.document.append(Command('end', 'questions'))
