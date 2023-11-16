@@ -1,6 +1,6 @@
 #Arquivo direcionado a transformar as questões em uma prova fisica de multipla escolha
-from pylatex import MiniPage, Document, Section, Subsection, Command, Figure, NoEscape, Package, Tabular, MultiColumn, MultiRow, LongTabu, Tabu, Center, FlushLeft, FlushRight, NewPage, NewLine, VerticalSpace, HorizontalSpace, LineBreak, TextColor
-from pylatex.utils import italic, bold, NoEscape 
+from pylatex import MiniPage, Document, Section, Command, Figure , Package, Tabular
+from pylatex.utils import italic, bold
 import qrcode
 
 
@@ -38,18 +38,17 @@ class ParseLatex:
                 qrcode.append(Command('includegraphics[width=0.2\\textwidth]{qrcode.png}'))
                 qrcode.append(Command('label{fig:qrcode}'))
                 
-            
-
     def generate_gabarito(self):
-        for j in range(self.numero_questoes):
-            if j == 0 or j % 5 == 0 :
-
-                with self.document.create(Tabular("|c|c|")) as table:
-                    table.add_hline()
-                    table.add_row(["Questão", "Resposta"])
-                    table.add_hline()
-            table.add_row([str(j + 1), ""])
-            table.add_hline()
+        
+            for j in range(self.numero_questoes):
+                if j == 0 or j % 5 == 0 :
+                    with self.document.create(Tabular("|c|c|")) as table:
+                        table.add_hline()
+                        table.add_row(["Questão", "Resposta"])
+                        table.add_hline()
+                table.add_row([str(j + 1), ""])
+                table.add_hline()
+                     
 
     def generate_questions(self):
         self.document.append(Command('begin', 'questions'))
@@ -65,7 +64,7 @@ class ParseLatex:
         self.document.append(Command('end', 'document'))
 
     def generate_pdf(self):
-        self.document.generate_pdf(self.nome_prova, clean_tex=False)
+        self.document.generate_pdf(self.nome_prova+".tex", clean_tex=False, compiler='pdflatex')
 
 
 class QrCode:
@@ -86,49 +85,3 @@ class QrCode:
         return img
 
 
-#questoes = [["Em programação, o que é um vetor?"],["O que é um loop em programação?"],["O que é um condicional em programação?"]]
-
-#gabarito = [
-#    [
-#        "Um tipo de dado usado apenas para armazenar números inteiros.",
-#        "Uma variável que só pode conter caracteres de texto.",
-#        "Uma estrutura de dados que armazena uma coleção de elementos do mesmo tipo.",
-#        "Uma função que calcula a média de um conjunto de números.",
-#        "Um operador matemático."
-#        ], 
-#    [
-#        "Uma instrução que realiza uma única ação e termina a execução.",
-#        "Uma estrutura de controle que permite repetir um bloco de código várias vezes.",
-#        "Um tipo de dado usado para armazenar números decimais.",
-#        "Uma função que encontra o valor máximo em uma lista.",
-#        "Um operador lógico."
-#        ], 
-#    [
-#        "Uma instrução que realiza uma única ação e termina a execução.",
-#        "Uma estrutura de controle que permite repetir um bloco de código várias vezes.",
-#        "Uma estrutura de controle que executa um bloco de código com base em uma condição.",
-#        "Uma função que calcula a raiz quadrada de um número.",
-#        "Um operador de comparação."
-#        ]]
-#
-#nome_prova = 'Prova 1'
-#
-#nome_disciplina = 'Matemática'
-#
-#nome_professor = 'Professor'
-#
-#nome_aluno = 'Aluno'
-#
-#numero_questoes = 3
-
-#respostas = '''
-#                1 - C \n
-#                2 - B \n
-#                3 - C \n'''
-
-#QrCode(respostas).generate_qrcode().save('qrcode.png')
-
-#latex = ParseLatex(questoes, gabarito, nome_prova, nome_disciplina, nome_professor, nome_aluno, numero_questoes)
-#latex.generate_latex()
-
-#latex.document.generate_pdf('Prova 1', clean_tex=False)
