@@ -45,7 +45,7 @@ class Main:
         elif opcao == 2:
             self.listarDados()
         elif opcao == 3:
-            self.gerar_prova_por_aluno()
+            self.gerar_prova_por_turma()
         elif opcao == 9:
             exit()
         else:
@@ -98,9 +98,7 @@ class Main:
         print("2 - Alterar status")
         print("3 - Cadastrar professor")
         print("4 - Cadastrar turma")
-        print("5 - Registrar nota")
-        print("6 - Alterar Status")
-        print("7 - Adicionar aluno a uma turma")
+        print("5 - Adicionar aluno a uma turma")
         print("9 - Voltar")
         try:
             opcao = int(input("Digite a opcao:"))
@@ -116,13 +114,12 @@ class Main:
         elif opcao == 4:
             self.cadastrar_turma()
         elif opcao == 5:
-            self.cadastrar_nota()
-        elif opcao == 6:
-            self.alterar_status()
-        elif opcao == 7:
             self.matricular_aluno_turma()
         elif opcao == 9:
             self.pagina_inicial()
+        else:
+            print("Opcao invalida!")
+            self.inserirDados2()
 
     def listarDados(self):
         print("1 - Listar cursos")
@@ -542,10 +539,20 @@ class Main:
 
         print("As matriculas do aluno são:")
         for matricula in Matricula().select_matricula_by_aluno(id_aluno):
+            if matricula[1] == None:
+                status =  "NÂO CURSADA"
+            else:
+                status = matricula[1]
+
+            if matricula[2] == None:
+                quant = 0
+            else:
+                quant = matricula[2]
+
             print(
-                "Disciplina: " + str(Disciplina().select_disciplina(matricula[0])[0][1]) +
-                "\nStatus: " + str(matricula[1]) +
-                "\nQuantidade de vezes reprovado: " + str(matricula[2])+ "\n\n"
+                "Disciplina: " + str(Disciplina().select_disciplina(matricula[4])[0][1]) +
+                "\nStatus: " + str(status) +
+                "\nQuantidade de vezes reprovado: " + str(quant)+ "\n\n"
             )
 
         #self.listarDados()
@@ -737,24 +744,19 @@ class Main:
                     gabcod = gabcod + gabarito[0] +" -- "
             
 
-                QrCode(gab).generate_qrcode().save("qrcode.png")
+                QrCode("FUTURO METODO DE CORREÇÂO AUTOMATICA").generate_qrcode().save("qrcode.png")
                 Disc = "Prova integrada"
 
                 print(len(questionário))
 
-                HistProva().insert_historico(gabcod, date_format, id_aluno)
+                HistProva().insert_historico(gabcod, date_format, id_aluno[0])
                 nome_prova = str(HistProva().select_last_id()[0][0]) + "-" + str(date_format.strftime("%d%m%Y"))
-                prova = ParseLatex(questionário, alters, nome_prova,  Disc, "Data : " + date, "Aluno: "+ Aluno().select_aluno(id_aluno)[1], len(questionário))
+                prova = ParseLatex(questionário, alters, nome_prova,  Disc, "Data : " + date, "Aluno: "+ Aluno().select_aluno(id_aluno[0])[0][1], len(questionário))
                 prova.generate_latex()
                 try:
                     prova.generate_pdf()
-                    self.pagina_inicial()
                 except Exception as err:
-                    self.pagina_inicial()
                     pass
-
-        
-
 
     def matricular_aluno_turma(self):
         print("Qual aluno desja matricular?")

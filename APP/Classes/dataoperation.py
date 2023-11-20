@@ -69,6 +69,14 @@ class Disciplina:
             db.disconnect()
             return result
         
+    #função que retorna todas as disciplinas cursadas por um aluno
+    def select_disciplina_cursada(self, id_aluno):
+        db = MySQLConnector()
+        db.connect()
+        query = "SELECT * FROM DISCIPLINA WHERE ID IN (SELECT DISCIPLINA_ID FROM MATRICULA WHERE ALUNO_ID = {} AND STATUS = 'CURSANDO' OR STATUS = 'APROVADO')".format(id_aluno)
+        result = db.execute_query(query)
+        db.disconnect()
+        return result
 
     #funçao que faz um link entre uma disciplina e um curso
     def insert_disciplina_curso(self, id_disciplina, id_curso):
@@ -213,7 +221,15 @@ class Aluno:
         result = db.execute_query(query)
         db.disconnect()
         return result
-    
+
+    #função que retorna todos os alunos matriculados em uma turma 
+    def select_aluno_by_turma(self, id_turma):
+        db = MySQLConnector()
+        db.connect()
+        query = "SELECT * FROM ALUNO WHERE ID IN (SELECT MATRICULA_ID FROM TURMA_HAS_MATRICULA WHERE TURMA_ID = {})".format(id_turma)
+        result = db.execute_query(query)
+        db.disconnect()
+        return result 
 
 #classe que irá manipular a tabela Matricula que contém as seguintes colunas (id_matricula, aluno_id, disciplina_id, conteudo_id, status, quantidade_reprovados)
 class Matricula:
@@ -287,6 +303,7 @@ class Matricula:
         result = db.execute_query(query)
         db.disconnect()
         return result
+
 
 
 #class que irá manipular a tabela Notas que contém as seguintes colunas (id_nota, aluno_id, disciplina_id, conteudo_id, nota)
